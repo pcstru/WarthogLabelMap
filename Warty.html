@@ -19,6 +19,10 @@
           <h2>Settings CSV File</h2>
            <input type='file' id='fileinput'>
            <input type='button' id='btnLoad' value='Load' onclick='loadFile();'>
+           <select id='brange' onchange='switch_vlabels()'>
+               <Option>Select option</Option>
+           </select>
+
         </fieldset>
     </form>
 
@@ -34,9 +38,13 @@
     <script type="text/javascript">
 
         var input, file;
+        var lab_h = {};
+
         input = document.getElementById('fileinput');
+        v_opts = document.getElementById('brange')
 
         function loadFile() {
+
             if (!input) {
                 alert("Um, couldn't find the fileinput element.");
             } else if (!input.files) {
@@ -52,19 +60,33 @@
             }
 
             function receivedText(e) {
+                
+                // Split into lines
                 let lines = e.target.result;
                 let la = lines.split(/\r\n|\n/);
+                
+                lab_h = {};
+                var labMax = -1;
                 var table = document.createElement("table");
+
+                // Process each line (first line is header)
                 for(var i=1; i< la.length;i++) {
                     var row = table.insertRow(-1);
+
+                    // Split on comma, Simple CSV incomming
                     var el = la[i].split(',');
                     for( var j=0;j< el.length;j++) {
                         var Cell = row.insertCell(-1);
                         Cell.appendChild(document.createTextNode(el[j]));
+                        // Populate the array for the switch id
                         el[j]=el[j].trim();
                     }
+
+                    
                     var sPrefix = "";
                     var iDoc;
+
+                    // Is this Joystick or Throttle
                     if( el[1]=="ThrustMasterWarthogJoystick") {
                         sPrefix="JS"
                         var iDoc = document.getElementById('Img1')
@@ -72,20 +94,60 @@
                         sPrefix="TH"
                         var iDoc = document.getElementById('Img2')
                     }
-                    var did= sPrefix+el[2]+"_A";
+
+                    // Generate a count of instances of this button
+                    if (! lab_h[sPrefix+el[2]] ) {
+                            lab_h[sPrefix+el[2]] = 1;
+                    } else {
+                        lab_h[sPrefix+el[2]] += 1;
+                    }
+
+                    // Track biggest duplicate
+                    if( lab_h[sPrefix+el[2]]>labMax ) {
+                        labMax = lab_h[sPrefix+el[2]];
+                        var d_el = document.createElement("option");
+                        d_el.textContent=labMax;
+                        d_el.value=labMax;
+                        v_opts.appendChild(d_el);
+                    }
+
+                    
+                    var did= sPrefix+el[2]+lab_h[sPrefix+el[2]];
                     if( document.getElementById(did) ) {
                         var dumb = "dumb";
                     } else {
                         var itemDiv = document.createElement("div");
                         itemDiv.className = sPrefix+el[2];
-                        itemDiv.id = sPrefix+el[2]+"_A"
+                        itemDiv.id = sPrefix+el[2]+lab_h[sPrefix+el[2]];
+                        if(lab_h[sPrefix+el[2]]>1) {
+                            itemDiv.style.visibility = "hidden";
+                        }
                         var itemText=document.createTextNode(el[0]);
                         itemDiv.appendChild(itemText);
                         iDoc.appendChild(itemDiv);
                     }
 
+
+
+
                 }
                 // document.getElementById('Output').appendChild(table);
+            }
+
+        }
+
+        function switch_vlabels() {
+            for( var key in lab_h ) {
+                var mx=lab_h[key];
+                for(var i=1; i <= mx; i++) {
+                    var d_el = document.getElementById(key+i);
+                    if( v_opts.selectedIndex == i ) {
+                        d_el.style.visibility = "visible";
+                    } else {
+                        d_el.style.visibility = "hidden";
+                    }
+                }
+
             }
 
         }
