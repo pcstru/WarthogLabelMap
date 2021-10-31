@@ -1,0 +1,76 @@
+/* Bottom left text */
+/* Container holding the image and the text */
+.container {
+    position: relative;
+    text-align: left;
+    color: black;
+  }
+
+  .JSJoy_YAxis { position: absolute; top: 871px; left: 85px; }
+  .JSJoy_1 { position: absolute; top: 879px; left: 366px; }
+  .JSJoy_XAxis { position: absolute; top: 807px; left: 213px; }
+  .JSJoy_2 { position: absolute; top: 175px; left: 142px; }
+  .JSJoy_13 { position: absolute; top: 476px; left: 600px; }
+  .JSJoy_11 { position: absolute; top: 371px; left: 600px; }
+  .JSJoy_14 { position: absolute; top: 423px; left: 508px; }
+  .JSJoy_12 { position: absolute; top: 423px; left: 689px; }
+  .JSJoy_4 { position: absolute; top: 1003px; left: 663px; }
+  .JSJoy_POV1Up { position: absolute; top: 58px; left: 581px; }
+  .JSJoy_POV1Down { position: absolute; top: 203px; left: 581px; }
+  .JSJoy_POV1Right { position: absolute; top: 130px; left: 700px; }
+  .JSJoy_POV1Left { position: absolute; top: 130px; left: 460px; }
+  .JSJoy_7 { position: absolute; top: 255px; left: 124px; }
+  .JSJoy_9 { position: absolute; top: 360px; left: 124px; }
+  .JSJoy_3 { position: absolute; top: 943px; left: 680px; }
+  .JSJoy_5 { position: absolute; top: 284px; left: 620px; }
+  .JSJoy_10 { position: absolute; top: 307px; left: 36px; }
+  .JSJoy_8 { position: absolute; top: 307px; left: 216px; }
+  .JSJoy_4 { position: absolute; top: 1003px; left: 666px; }
+  .JSJoy_17 { position: absolute; top: 634px; left: 45px; }
+  .JSJoy_18 { position: absolute; top: 579px; left: 35px; }
+  .JSJoy_16 { position: absolute; top: 579px; left: 216px; }
+  .JSJoy_19 { position: absolute; top: 640px; left: 165px; }
+  .JSJoy_15 { position: absolute; top: 528px; left: 126px; }
+  .JSJoy_6 { position: absolute; top: 946px; left: 395px; }
+  
+
+  .THJoy_1 { position: absolute; top: 794px; left: 484px; }
+  .THJoy_11 { position: absolute; top: 989px; left: 118px; }
+  .THJoy_12 { position: absolute; top: 1021px; left: 118px; }
+  .THJoy_13 { position: absolute; top: 960px; left: 705px; }
+  .THJoy_14 { position: absolute; top: 705px; left: 992px; }
+  .THJoy_15 { position: absolute; top: 772px; left: 682px; }
+  .THJoy_16 { position: absolute; top: 39px; left: 330px; }
+  .THJoy_17 { position: absolute; top: 38px; left: 445px; }
+  .THJoy_18 { position: absolute; top: 212px; left: 678px; }
+  .THJoy_19 { position: absolute; top: 271px; left: 678px; }
+  .THJoy_2 { position: absolute; top: 862px; left: 147px; }
+  .THJoy_20 { position: absolute; top: 303px; left: 624px; }
+  .THJoy_21 { position: absolute; top: 402px; left: 673px; }
+  .THJoy_24 { position: absolute; top: 529px; left: 90px; }
+  .THJoy_25 { position: absolute; top: 624px; left: 180px; }
+  .THJoy_26 { position: absolute; top: 624px; left: 518px; }
+  .THJoy_27 { position: absolute; top: 502px; left: 687px; }
+  .THJoy_28 { position: absolute; top: 531px; left: 687px; }
+  .THJoy_29 { position: absolute; top: 363px; left: 398px; }
+  .THJoy_3 { position: absolute; top: 793px; left: 119px; }
+  .THJoy_30 { position: absolute; top: 362px; left: 289px; }
+  .THJoy_31 { position: absolute; top: 180px; left: 678px; }
+  .THJoy_32 { position: absolute; top: 243px; left: 678px; }
+  .THJoy_4 { position: absolute; top: 825px; left: 179px; }
+  .THJoy_5 { position: absolute; top: 860px; left: 67px; }
+  .THJoy_6 { position: absolute; top: 826px; left: 62px; }
+  .THJoy_7 { position: absolute; top: 888px; left: 118px; }
+  .THJoy_8 { position: absolute; top: 913px; left: 118px; }
+  .THJoy_9 { position: absolute; top: 939px; left: 118px; }
+  .THJoy_10 { position: absolute; top: 961px; left: 118px; }
+  .THJoy_POV1Down { position: absolute; top: 779px; left: 281px; }
+  .THJoy_POV1Left { position: absolute; top: 723px; left: 194px; }
+  .THJoy_POV1Right { position: absolute; top: 723px; left: 369px; }
+  .THJoy_POV1Up { position: absolute; top: 667px; left: 281px; }
+  .THJoy_RZAxis { position: absolute; top: 1078px; left: 244px; }
+  .THJoy_UAxis { position: absolute; top: 1059px; left: 559px; }
+  .THJoy_XAxis { position: absolute; top: 707px; left: 613px; }
+  .THJoy_YAxis { position: absolute; top: 737px; left: 600px; }
+  .THJoy_ZAxis { position: absolute; top: 356px; left: 689px; }
+  

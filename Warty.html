@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!-- 
+   File   : Warty.html
+   Author : Piers C. Structures
+   Date   : Oct 2021
+   Notes  : Warthog Label thing
+   Licence: Public Domain
+-->
+
+<head><meta charset="utf-8"/>
+    <link rel="stylesheet" href="Warty.css">
+</head>
+<html>
+<body>
+
+    <form id="jsonFile" name="jsonFile" enctype="multipart/form-data" method="post">
+
+        <fieldset>
+          <h2>Settings CSV File</h2>
+           <input type='file' id='fileinput'>
+           <input type='button' id='btnLoad' value='Load' onclick='loadFile();'>
+        </fieldset>
+    </form>
+
+    <div id='Img1' class="container">
+        <img id='JSPic' src="JS.PNG">
+    </div>    
+    <div id='Img2' class="container">
+        <img id='THPic' src="TH.PNG">
+    </div>    
+    <div id='Output'>
+    </div>    
+
+    <script type="text/javascript">
+
+        var input, file;
+        input = document.getElementById('fileinput');
+
+        function loadFile() {
+            if (!input) {
+                alert("Um, couldn't find the fileinput element.");
+            } else if (!input.files) {
+                alert("This browser doesn't seem to support the `files` property of file inputs.");
+            } else if (!input.files[0]) {
+                alert("Please select a file before clicking 'Load'");
+            } else {
+                file = input.files[0];
+                fr = new FileReader();
+                fr.onload = receivedText;
+                fr.readAsText(file);
+
+            }
+
+            function receivedText(e) {
+                let lines = e.target.result;
+                let la = lines.split(/\r\n|\n/);
+                var table = document.createElement("table");
+                for(var i=1; i< la.length;i++) {
+                    var row = table.insertRow(-1);
+                    var el = la[i].split(',');
+                    for( var j=0;j< el.length;j++) {
+                        var Cell = row.insertCell(-1);
+                        Cell.appendChild(document.createTextNode(el[j]));
+                        el[j]=el[j].trim();
+                    }
+                    var sPrefix = "";
+                    var iDoc;
+                    if( el[1]=="ThrustMasterWarthogJoystick") {
+                        sPrefix="JS"
+                        var iDoc = document.getElementById('Img1')
+                    } else {
+                        sPrefix="TH"
+                        var iDoc = document.getElementById('Img2')
+                    }
+                    var did= sPrefix+el[2]+"_A";
+                    if( document.getElementById(did) ) {
+                        var dumb = "dumb";
+                    } else {
+                        var itemDiv = document.createElement("div");
+                        itemDiv.className = sPrefix+el[2];
+                        itemDiv.id = sPrefix+el[2]+"_A"
+                        var itemText=document.createTextNode(el[0]);
+                        itemDiv.appendChild(itemText);
+                        iDoc.appendChild(itemDiv);
+                    }
+
+                }
+                // document.getElementById('Output').appendChild(table);
+            }
+
+        }
+
+    </script>
+
+
+</body>
+</html>
+
