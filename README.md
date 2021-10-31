@@ -10,4 +10,6 @@ The script in the HTML file loads the data from the CSV and creates div's with t
 Label visibility is controlled by select option. Label div Id's are unique with a numbered suffix. Multiple Instances of a label will cause the suffix to increment. It should be possible to use this to group assignments into appropiate pages (with some thought) by conmtrolling the order and using blank labels to push later labels onto a different options page/view. A second csv file PageED.csv shows how this might be done (although something seems broken).
 
 
+EDControllerSettings.ps1 is a Powershell script which produces an outout that can be used as the basis of the .csv file. Modify the file to point at your bindings file and pipe the output to a .csv file. Remove the first two columns and insert a header row.
+
 
