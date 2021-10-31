@@ -3,7 +3,7 @@
    File   : Warty.html
    Author : Piers C. Structures
    Date   : Oct 2021
-   Notes  : Warthog Label thing
+   Notes  : Warthog Label thing.
    Licence: Public Domain
 -->
 
@@ -14,7 +14,6 @@
 <body>
 
     <form id="jsonFile" name="jsonFile" enctype="multipart/form-data" method="post">
-
         <fieldset>
           <h2>Settings CSV File</h2>
            <input type='file' id='fileinput'>
@@ -111,7 +110,7 @@
                         v_opts.appendChild(d_el);
                     }
 
-                    
+                    // Generate a div for the button
                     var did= sPrefix+el[2]+lab_h[sPrefix+el[2]];
                     if( document.getElementById(did) ) {
                         var dumb = "dumb";
@@ -136,6 +135,8 @@
 
         }
 
+        // When user changes selection, change the visibility of
+        // associated div's (we know who they are!)
         function switch_vlabels() {
             for( var key in lab_h ) {
                 var mx=lab_h[key];
@@ -147,7 +148,6 @@
                         d_el.style.visibility = "hidden";
                     }
                 }
-
             }
 
         }
